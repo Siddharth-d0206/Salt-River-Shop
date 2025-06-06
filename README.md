@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ## Running
 
 1. Place your Firebase credentials in `firebase_credentials.json` and update
-   `backend/firebase-config.py` with your project settings.
+   `backend/firebase_config.py` with your project settings.
 2. Start the Flask development server:
 
 ```bash
