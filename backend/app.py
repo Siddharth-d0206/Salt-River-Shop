@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 import firebase_admin
 from firebase_admin import credentials, initialize_app
 import os
@@ -21,7 +21,7 @@ def create_app():
 
     @app.route('/')
     def index():
-        return {'message': 'Salt River API'}
+        return send_from_directory('../frontend', 'index.html')
 
     return app
 
