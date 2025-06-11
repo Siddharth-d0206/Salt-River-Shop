@@ -1,6 +1,7 @@
 from flask import Flask
 import firebase_admin
 from firebase_admin import credentials, initialize_app
+import os
 
 from .config import Config
 from .models import db
@@ -29,4 +30,5 @@ if __name__ == '__main__':
     app = create_app()
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    port = int(os.getenv("PORT", 5001))
+    app.run(debug=True, port=port)
