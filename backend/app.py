@@ -1,4 +1,5 @@
 from flask import Flask
+import firebase_admin
 from firebase_admin import credentials, initialize_app
 
 from .config import Config
@@ -6,7 +7,8 @@ from .models import db
 from .routes import bp
 
 cred = credentials.Certificate('firebase_credentials.json')
-initialize_app(cred)
+if not firebase_admin._apps:
+    initialize_app(cred)
 
 
 def create_app():
