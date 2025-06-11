@@ -20,3 +20,4 @@ Salt River is a platform that helps businesses donate surplus goods to verified 
    ```bash
    python -m backend.app
    ```
+   The API will be available at `http://localhost:5001`.
