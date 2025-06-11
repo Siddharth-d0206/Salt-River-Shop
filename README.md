@@ -13,7 +13,9 @@ Salt River is a platform that helps businesses donate surplus goods to verified 
    ```bash
    pip install -r requirements.txt
    ```
-2. Place your Firebase service account credentials in `firebase_credentials.json`.
+2. Download a Firebase service account key (JSON) and replace the contents of
+   `firebase_credentials.json` with that JSON. You can simply copy and paste the
+   entire config from the Firebase console into the file.
 3. Start the development server:
    ```bash
    python -m backend.app
