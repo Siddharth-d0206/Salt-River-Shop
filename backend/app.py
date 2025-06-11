@@ -1,15 +1,25 @@
 from flask import Flask
-from firebase_admin import credentials, initialize_app
+import firebase_admin
+from firebase_admin import credentials
 
 from .config import Config
 from .models import db
 from .routes import bp
 
 cred = credentials.Certificate('firebase_credentials.json')
-initialize_app(cred)
+
+
+def _init_firebase():
+    """Initialize Firebase only if it hasn't been initialized."""
+    try:
+        firebase_admin.get_app()
+    except ValueError:
+        firebase_admin.initialize_app(cred)
 
 
 def create_app():
+    _init_firebase()
+
     app = Flask(__name__)
     app.config.from_object(Config)
 
